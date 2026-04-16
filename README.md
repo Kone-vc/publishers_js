@@ -24,11 +24,10 @@ User visits your site
 Paste this before your closing `</body>` tag:
 
 ```html
-<script src="https://cdn.kone.vc/widget/kone-widget.js"></script>
+<script src="https://kone.vc/kone-widget.js"></script>
 <script>
   KoneWidget.create({
     apiKey:  'YOUR_API_KEY',
-    siteUrl: 'https://yoursite.com',
   });
 </script>
 ```
@@ -64,15 +63,12 @@ At 10,000 MAU the CPA numbers scale to **$168,000/month gross**.
 ## Full configuration
 
 ```html
-<script src="https://cdn.kone.vc/widget/kone-widget.js"></script>
+<script src="https://kone.vc/kone-widget.js"></script>
 <script>
   KoneWidget.create({
 
     // Required
     apiKey:  'YOUR_API_KEY',
-
-    // Your site URL — sent as context to the AI (default: window.location.origin)
-    siteUrl: 'https://yoursite.com',
 
     // Accent color for buttons and UI elements (default: #5b6ef5)
     accentColor: '#5b6ef5',
@@ -105,7 +101,6 @@ Content-Type: application/json
 
 {
   "api_key":     "YOUR_API_KEY",
-  "url":         "https://yoursite.com",
   "prompt":      "Where can I buy cheap running shoes?",
   "response_id": "optional-for-conversation-continuity"
 }
@@ -142,7 +137,6 @@ The full source of `kone-widget.js` is in this repository. Here is a minimal sta
 
     var API  = 'https://go.kone.vc/mcp/chat';
     var KEY  = 'YOUR_API_KEY';
-    var SITE = 'https://yoursite.com';
     var GREETING = "Hi! 👋 I'm your free personal AI assistant. Ask me anything!";
 
     var responseId = null;
@@ -349,13 +343,12 @@ README.md          This file
 
 ## Privacy & compliance
 
-- **No cookies** set by the widget
-- **No localStorage or sessionStorage** used
-- **No device fingerprinting**
-- **No PII collected** — only the user's message text and your `siteUrl` are sent to the API
+- No cookies set by the widget
+- No localStorage or sessionStorage** used
+- No device fingerprinting
+- No PII collected — only the user's message text and your `siteUrl` are sent to the API
 - Conversation state lives in JavaScript memory only — cleared on page reload
-- Compliant with **GDPR, UK GDPR, and CCPA** by design
-- **No Google Mobile Ads SDK**, no ad identifiers
+- Compliant with GDPR, UK GDPR, and CCPA by design
 
 ---
 
