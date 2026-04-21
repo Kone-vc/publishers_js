@@ -10,6 +10,8 @@
   → AI answers based on the website content, with direct links to the content
   → If relevant, a recommendation sponsored link is added to the answer.
 
+  Demo: https://dev.kone.vc/banner/index.html
+
 ---
 
 ## Publisher revenue
