@@ -1,5 +1,5 @@
 /*!
- * Kone AI Publisher Widget v1.7.0 - IAB & SafeFrame Compliant
+ * Kone AI Publisher Widget v1.8.0 - IAB & SafeFrame Compliant
  * Optimized for Custom Branding
  */
 
@@ -28,8 +28,11 @@
   }
 
   function handleExit(url) {
-    var targetURL = window.clickTag || url; // IAB clickTag standard 
-    window.open(targetURL, '_blank', 'noopener,noreferrer');
+    var targetURL = url || window.clickTag; // Use URLs in the AI response
+  
+    if (targetURL) {
+      window.open(targetURL, '_blank', 'noopener,noreferrer');
+    }
   }
 
   /* ── STYLES [cite: 266, 311] ── */
@@ -197,7 +200,7 @@
     var o = esc(s);
     o = o.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     o = o.replace(/`(.*?)`/g, '<code>$1</code>');
-    o = o.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2">$1</a>');
+    o = o.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
     o = o.replace(/\n/g, '<br>');
     return o;
   }
