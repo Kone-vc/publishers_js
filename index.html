@@ -28,6 +28,8 @@
   <script src="kone-widget.js"></script>
   <script>
     KoneWidget.create({
+      siteUrl: '%%REFERRER_URL%%',  // site URL
+      siteTitle: '%%PATTERN:site_title%%',  // site title
       mode: 'inline' // New mode for IAB compliance
     });
   </script>

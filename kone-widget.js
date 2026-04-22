@@ -1,6 +1,6 @@
 /*!
- * Kone AI Publisher Widget v1.8.0 - IAB & SafeFrame Compliant
- * Optimized for Custom Branding
+ * Kone AI Publisher Widget v1.9.0 - IAB & SafeFrame Compliant
+ * Optimized with Typing Indicators and Custom Branding
  */
 
 (function (global, factory) {
@@ -34,7 +34,7 @@
       window.open(targetURL, '_blank', 'noopener,noreferrer');
     }
   }
-
+  
   /* ── STYLES [cite: 266, 311] ── */
   var CSS = [
     '* { box-sizing: border-box; }',
@@ -74,7 +74,14 @@
   ].join('');
 
   function KoneWidget(options) {
-    this.siteUrl = getContextUrl();
+    // Priority: 1. Passed Option (Macro) -> 2. SafeFrame -> 3. Window Location
+    this.siteUrl = (options.siteUrl && options.siteUrl.indexOf('%%') === -1) 
+                 ? options.siteUrl 
+                 : getContextUrl();
+    // Set Site Title: Prioritize GAM Pattern over SafeFrame detection
+    this.siteTitle = (options.siteTitle && options.siteTitle.indexOf('%%') === -1) 
+                   ? options.siteTitle 
+                   : getContextTitle();                 
     this.siteTitle = getContextTitle(); 
     this._isLoading = false;
     this._responseId = null;
