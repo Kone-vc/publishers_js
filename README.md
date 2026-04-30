@@ -10,7 +10,9 @@
   → AI answers based on the website content, with direct links to the content
   → If relevant, a recommendation sponsored link is added to the answer.
 
-  Demo: https://dev.kone.vc/banner/index.html
+  Demo: 
+  - https://dev.kone.vc/ai_assistant/index.html
+  - https://dev.kone.vc/special_offers/index.html
 
 ---
 
@@ -31,10 +33,16 @@ CPM per 300x600 banner on the right side.
 ## Files in this repository
 
 ```
-kone-widget.js     Full-featured widget (configurable, modular, IAB-compatible)
-index.html         Initial html file for a publisher placement
-kone-widget.zip    zip archive of index.html and kone-widget.js 
-README.md          This file
+publishers_js/
+├── ai_assistant/           # AI assistant on the publisher's site content
+│   ├── index.html          # run the banner in the iFrame
+│   ├── kone-widget.js      # banner js code, complied with IAB requirements
+│   └── kone-widget.zip     # zip with index.html and kone-widget.js
+├── special_offers/         # Actual special offers via natural prompt
+│   ├── index.html          # run the banner in the iFrame
+│   ├── kone-widget.js      # banner js code, complied with IAB requirements
+│   └── kone-widget.zip     # zip with index.html and kone-widget.js
+└── README.md
 ```
 
 ---

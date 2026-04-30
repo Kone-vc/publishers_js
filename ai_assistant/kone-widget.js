@@ -81,8 +81,7 @@
     // Set Site Title: Prioritize GAM Pattern over SafeFrame detection
     this.siteTitle = (options.siteTitle && options.siteTitle.indexOf('%%') === -1) 
                    ? options.siteTitle 
-                   : getContextTitle();                 
-    this.siteTitle = getContextTitle(); 
+                   : getContextTitle();
     this._isLoading = false;
     this._responseId = null;
   }
