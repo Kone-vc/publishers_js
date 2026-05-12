@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kone 300x600 Banner Demo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f5f2;
+      color: #202024;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
+    }
+
+    .page {
+      display: grid;
+      grid-template-columns: minmax(0, 680px) 300px;
+      gap: 32px;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 36px 24px;
+      align-items: start;
+    }
+
+    article {
+      min-width: 0;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 42px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .byline {
+      margin: 0 0 28px;
+      color: #66646c;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+
+    p {
+      margin: 0 0 18px;
+      font-size: 18px;
+    }
+
+    .ad-rail {
+      position: sticky;
+      top: 24px;
+      width: 300px;
+    }
+
+    .ad-label {
+      margin: 0 0 8px;
+      color: #77757d;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .banner-frame {
+      display: block;
+      width: 300px;
+      height: 600px;
+      border: 0;
+      background: #000;
+    }
+
+    .banner-frame.is-expanded {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      width: 100vw;
+      height: 100vh;
+      background: transparent;
+    }
+
+    @media (max-width: 820px) {
+      .page {
+        grid-template-columns: 1fr;
+      }
+
+      .ad-rail {
+        position: static;
+        margin: 16px auto 0;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <article>
+      <h1>How AI shopping assistants are changing the way readers discover offers</h1>
+      <p class="byline">Publisher demo page · Sponsored placement preview</p>
+
+      <p>
+        Digital publishers are experimenting with new ad formats that feel more useful than
+        static promotion. Instead of showing a single message, interactive placements can help
+        readers compare products, explore travel ideas, or ask for timely recommendations.
+      </p>
+
+      <p>
+        The format on the right is a 300x600 rich media banner. It starts as a compact assistant
+        inside the ad slot, then opens an AI chat experience when the reader taps a suggested
+        question or types one of their own.
+      </p>
+
+      <p>
+        In a production publisher environment, this unit can remain constrained to the ad slot or
+        use an approved expandable rich media container. The exact behavior depends on the ad
+        server, SafeFrame settings, and publisher policy.
+      </p>
+
+      <p>
+        For this demo page, the banner is embedded inside a 300x600 iframe. When the assistant
+        opens, the creative asks the parent page to expand that iframe over the viewport, which
+        simulates a publisher-side expandable placement.
+      </p>
+
+      <p>
+        The result is a normal right-rail unit at rest, with the assistant modal appearing outside
+        the original ad slot after the reader interacts with it.
+      </p>
+    </article>
+
+    <aside class="ad-rail" aria-label="Advertisement">
+      <div class="ad-label">Advertisement</div>
+      <iframe
+        id="kone-demo-frame"
+        class="banner-frame"
+        src="index.html"
+        title="Kone AI assistant 300x600 banner"
+        width="300"
+        height="600"
+        scrolling="no"
+      ></iframe>
+    </aside>
+  </main>
+
+  <script>
+    (function () {
+      var frame = document.getElementById('kone-demo-frame');
+
+      window.addEventListener('message', function (event) {
+        if (event.source !== frame.contentWindow) return;
+        if (!event.data || event.data.source !== 'kone-widget') return;
+
+        if (event.data.action === 'open') {
+          frame.classList.add('is-expanded');
+        }
+
+        if (event.data.action === 'close') {
+          frame.classList.remove('is-expanded');
+        }
+      });
+    }());
+  </script>
+</body>
+</html>
