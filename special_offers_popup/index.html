@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="ad.size" content="width=300,height=600">
+  <title>Kone AI assistant 300x600 Banner</title>
+  <script>
+    // IAB Standard: clickTag for tracking [cite: 386]
+    var clickTag = "https://kone.vc/apps.html";
+  </script>
+  <style>
+    body, html { margin: 0; padding: 0; width: 300px; height: 600px; overflow: hidden; background: #000; }
+    /* IAB Required: 1px border for light backgrounds [cite: 267] */
+    #ad-container { 
+      width: 298px; 
+      height: 598px; 
+      border: 1px solid #28282f; 
+      position: relative; 
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div id="ad-container">
+    <div id="kone-widget-root"></div>
+  </div>
+
+  <script src="kone-widget.js"></script>
+  <script>
+    KoneWidget.create({
+      mode: 'inline' // New mode for IAB compliance
+    });
+  </script>
+</body>
+</html>
